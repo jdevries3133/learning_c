@@ -23,7 +23,7 @@ void print_birthday(Birthday *bd, int *indent);
 
 typedef struct PersonTag {
     Birthday birthday;
-    char name[50];
+    char name[];
 } Person;
 
 Person * alloc_person(char name[], Birthday *bd);
