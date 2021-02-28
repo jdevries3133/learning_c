@@ -5,7 +5,9 @@ different resources.
 
 ## Table of Contents
 
-| folder | contents                                                          |
-| ------ | ----------------------------------------------------------------- |
-| k&r    | example files from the Kernighan and Ritchie book                 |
-| tree   | following along with Jacob Sorber, "How to Implement a Tree in C" |
+| folder                 | contents                                                                              |
+| ---------------------- | ------------------------------------------------------------------------------------- |
+| hash                   | following along with Jacob Sorber, "Understanding and Implementing a Hash Table in C" |
+| k&r                    | example files from the Kernighan and Ritchie book                                     |
+| structure_and_makefile | practice with c modules, headers, and makefiles                                       |
+| tree                   | following along with Jacob Sorber, "How to Implement a Tree in C"                     |
