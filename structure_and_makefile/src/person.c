@@ -25,11 +25,11 @@ void print_person(Person *person)
     print_birthday(&person->birthday, &indent);
 }
 
-void insert_birthday(int year, int month, int day, Birthday *bd)
+void insert_birthday(int *year, int *month, int *day, Birthday *bd)
 {
-    bd->year = year;
-    bd->day = day;
-    bd->month = month;
+    bd->year = *year;
+    bd->day = *day;
+    bd->month = *month;
 }
 
 

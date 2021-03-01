@@ -15,7 +15,7 @@ typedef struct BirthdayTag {
     int day;
 } Birthday;
 
-void insert_birthday(int year, int month, int day, Birthday *bd);
+void insert_birthday(int *year, int *month, int *day, Birthday *bd);
 void print_birthday(Birthday *bd, int *indent);
 
 

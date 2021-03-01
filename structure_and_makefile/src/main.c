@@ -12,7 +12,7 @@ int main ()
     int birth_month = 4;
     int birth_date = 25;
 
-    insert_birthday(birth_year, birth_month, birth_date, &bd);
+    insert_birthday(&birth_year, &birth_month, &birth_date, &bd);
 
     printf("Created Birthday:\n");
 
