@@ -1,8 +1,5 @@
 all:
 	python3 setup.py build
 
-install:
-	python3 setup.py install
-
 clean:
 	rm -rf build
