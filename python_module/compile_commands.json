@@ -1,0 +1,17 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "spammodule.c",
+      "-o",
+      "bin/spammodule.so",
+      "-Wall",
+      "-I/Users/JohnDeVries/.pyenv/versions/3.9.1/include/python3.9",
+      "-I/Users/JohnDeVries/.pyenv/versions/3.9.1/include/python3.9"
+    ],
+    "directory": "/Users/JohnDeVries/repos/learning_c/python_module",
+    "file": "/Users/JohnDeVries/repos/learning_c/python_module/spammodule.c",
+    "output": "/Users/JohnDeVries/repos/learning_c/python_module/spammodule.o"
+  }
+]
