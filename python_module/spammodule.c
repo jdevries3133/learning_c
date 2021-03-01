@@ -3,6 +3,19 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 
+/**
+ * spammodule.c follows the tutorial from the Offical CPython API
+ * Documentation:
+ *
+ *      https://docs.python.org/3/extending/extending.html
+ *
+ * This module simply exposes the C system() API directly to python. After
+ * installation, it can be imported and used within python as follows:
+ *
+ * >>> import spam
+ * >>> spam.system('ls')
+ */
+
 static PyObject *SpamError;
 
 static PyObject * spam_system(PyObject *self, PyObject *args)

@@ -6,8 +6,8 @@ module1 = Extension(
 )
 
 setup (
-    name='PackageName',
+    name='Spam',
     version='1.0',
-    description='This is a demo package',
+    description='My first C extension for python.',
     ext_modules=[module1]
 )
