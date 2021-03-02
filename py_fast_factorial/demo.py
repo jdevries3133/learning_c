@@ -32,3 +32,7 @@ if dur_c > dur_py:
     print(f'C lost by {(dur_c - dur_py) * 1000}ns')
 else:
     print(f'C won by {(dur_py - dur_c) * 1000}ns')
+
+values = (dur_c, dur_py)
+difference = (max(values) - min(values)) / max(values)
+print('That is a difference of {:.1%}%!'.format(difference))
