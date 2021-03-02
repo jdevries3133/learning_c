@@ -3,39 +3,50 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 
-static PyObject *SpamError;
 
-static PyObject * spam_system(PyObject *self, PyObject *args)
+static long long factorial(int num)
 {
-    const char *command;
-    int sts;
-
-    if (!PyArg_ParseTuple(args, "s", &command)) {
-        return NULL;
+    long long result = 1;
+    for (int i = 1; i < num; i++) {
+        result *= i;
     }
-    sts = system(command);
-    if (sts < 0) {
-        PyErr_SetString(SpamError, "System command failed");
-        return NULL;
-    }
-    return PyLong_FromLong(sts);
+    return result;
 }
 
-static PyMethodDef SpamMethods[] = {
+static PyObject *FactoError;
+
+static PyObject * facto(PyObject *self, PyObject *args)
+{
+    const int input;
+
+    if (!PyArg_ParseTuple(args, "i", &input)) {
+        return NULL;
+    }
+
+    if (input > 21) {  // NOLINT
+        PyErr_SetString(FactoError, "Input is too large. (1 < input < 21)");
+        return NULL;
+    }
+
+    long long result = factorial(input);  // NOLINT
+    return PyLong_FromLongLong(result);
+}
+
+static PyMethodDef FactoMethods[] = {
     {
-        "system",  // name of module
-        spam_system,  // module documentation
+        "facto",  // name of module
+        facto,  // function
         METH_VARARGS,  // size of per-interpreter state of the module
-        "Execute a shell command."  //
+        "Get the factorial quickly"  // function __doc__
     },
 };
 
-static struct PyModuleDef spammodule = {
+static struct PyModuleDef factomodule = {
     PyModuleDef_HEAD_INIT,
-    "spam",
-    "docstring for my c module",
+    "facto",
+    "Fast factorializer.",
     -1,
-    SpamMethods,
+    FactoMethods,
 };
 
 
@@ -43,16 +54,16 @@ PyMODINIT_FUNC PyInit_facto(void)
 {
     PyObject *m;
 
-    m = PyModule_Create(&spammodule);
+    m = PyModule_Create(&factomodule);
     if (m == NULL) {
         return NULL;
     }
 
-    SpamError = PyErr_NewException("spam.error", NULL, NULL);
-    Py_XINCREF(SpamError);
-    if (PyModule_AddObject(m, "error", SpamError) < 0) {
-        Py_XDECREF(SpamError);
-        Py_CLEAR(SpamError);
+    FactoError = PyErr_NewException("facto.error", NULL, NULL);
+    Py_XINCREF(FactoError);
+    if (PyModule_AddObject(m, "error", FactoError) < 0) {
+        Py_XDECREF(FactoError);
+        Py_CLEAR(FactoError);
         Py_DECREF(m);
         return NULL;
     }
