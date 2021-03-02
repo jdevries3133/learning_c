@@ -3,3 +3,7 @@
 *.so
 Session.vim
 bin
+build
+.cache
+compile_commands.json
+venv

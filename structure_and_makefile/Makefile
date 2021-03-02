@@ -1,4 +1,4 @@
-CC = gcc
+CC = clang  # change compiler to gcc and bear works fine.
 CFLAGS = -Wall
 SRC = $(wildcard src/*.c)
 BIN = bin
