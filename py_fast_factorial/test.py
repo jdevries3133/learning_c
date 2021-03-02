@@ -3,19 +3,32 @@ import time
 
 import facto
 
+
+# calculate 20!
 FIND_FACTORIAL = 20
+
+print('---- C ----')
 
 start = time.time()
 c_result = facto.facto(FIND_FACTORIAL)
-dur = time.time() - start
-print(f'C: calculated {c_result} in\t\t{dur}s')
+print(c_result)
+dur_c = time.time() - start
+print(f'calculated {FIND_FACTORIAL}! in {dur_c * 1000}ns')
+
+print('---- Python ----')
 
 start = time.time()
 result = 1
 for i in range(1, FIND_FACTORIAL):
     result *= i
-dur = time.time() - start
-print(f'Python: calculated {result} in\t{dur}s')
+print(result)
+dur_py = time.time() - start
+print(f'calculated {FIND_FACTORIAL}! in {dur_py * 1000}ns')
 
-if c_result != result:
-    raise Exception('C got incorrect answer due to no integer overflow handling')
+
+# Announce the winner
+
+if dur_c > dur_py:
+    print(f'C lost by {(dur_c - dur_py) * 1000}ns')
+else:
+    print(f'C won by {(dur_py - dur_c) * 1000}ns')
