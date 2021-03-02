@@ -41,6 +41,7 @@ static PyMethodDef SpamMethods[] = {
         METH_VARARGS,  // size of per-interpreter state of the module
         "Execute a shell command."  //
     },
+    {NULL}
 };
 
 static struct PyModuleDef spammodule = {
