@@ -10,7 +10,7 @@ FIND_FACTORIAL = 20
 print('---- C ----')
 
 start = time.time()
-c_result = facto.facto(FIND_FACTORIAL)
+c_result = facto.factorial(FIND_FACTORIAL)
 print(c_result)
 dur_c = time.time() - start
 print(f'calculated {FIND_FACTORIAL}! in {dur_c * 1000}ns')

@@ -1,5 +1,14 @@
-all:
-	source venv/bin/activate && pip install .
+SHELL = /bin/bash
+PYTHON_VENV = venv
+
+all: setup
+	source $(PYTHON_VENV)/bin/activate && pip install .
 
 run: all
-	./venv/bin/python3.9 test.py
+	./$(PYTHON_VENV)/bin/python3.9 demo.py
+
+setup:
+	if [ ! -d $(PYTHON_VENV) ]; then python3 -m venv $(PYTHON_VENV); fi;
+
+clean:
+	rm -rf $(PYTHON_VENV)

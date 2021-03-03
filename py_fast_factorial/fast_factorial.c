@@ -4,7 +4,7 @@
 #include <Python.h>
 
 
-static long long factorial(int num)
+static long long c_factorial(int num)
 {
     long long result = 1;
     for (int i = 1; i < num; i++) {
@@ -15,7 +15,7 @@ static long long factorial(int num)
 
 static PyObject *FactoError;
 
-static PyObject * facto(PyObject *self, PyObject *args)
+static PyObject * factorial(PyObject *self, PyObject *args)
 {
     const int input;
 
@@ -28,14 +28,14 @@ static PyObject * facto(PyObject *self, PyObject *args)
         return NULL;
     }
 
-    long long result = factorial(input);  // NOLINT
+    long long result = c_factorial(input);  // NOLINT
     return PyLong_FromLongLong(result);
 }
 
 static PyMethodDef FactoMethods[] = {
     {
-        "facto",  // name of module
-        facto,  // function
+        "factorial",  // name of method
+        factorial,  // function
         METH_VARARGS,  // size of per-interpreter state of the module
         "Get the factorial quickly"  // function __doc__
     },

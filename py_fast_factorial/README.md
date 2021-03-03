@@ -1,19 +1,18 @@
 # Usage
 
 ```python
-import spam
-spam.system('ls')
+import facto
+facto.factorial(12)
 ```
 
 # Setup
 
 You can use `setup.py` as usual, but the Makefile also has some shortucts:
 
-```
-# build the project
+```bash
+# build the project in a virtual environment
 make
 
-# create a virtual environment in this folder, build the project and
-# install into that virtual environment
-make venv
+# rm -rf venv
+make clean
 ```
