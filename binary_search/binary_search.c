@@ -22,6 +22,13 @@ _bc_recurse_search(int target, int array[], size_t size, int offset)
     int middle = size / 2;
 
     if (middle == 0) {
+        // check neighbors
+        if (middle - 1 >= size && array[middle - 1] == target) {
+            return middle - 1;
+        }
+        if (middle + 1 <= size && array[middle + 1] == target) {
+            return middle + 1;
+        }
         /* FAILURE EXIT CASE (no result found) */
         return BINARY_SEARCH_NO_RESULT;
     }
