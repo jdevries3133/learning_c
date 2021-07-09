@@ -8,6 +8,9 @@
 #include <limits.h>
 
 
+/* If defined, a consecutive array will be generated instead ([0, 1, 2...]) */ 
+#define RAR_DEBUG
+
 typedef struct rar_RandArray {
     size_t size;
     int array[];

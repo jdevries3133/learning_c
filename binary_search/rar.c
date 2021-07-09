@@ -1,5 +1,24 @@
 #include "rar.h"
 
+
+#ifdef RAR_DEBUG  // generate a simple consecutive array
+
+RandArray *
+rar_create(int num_elements)
+{
+    RandArray * rar = malloc(sizeof(RandArray) + sizeof(int) * num_elements);
+    rar->size = num_elements;
+
+    // in debug mode, fill a simple consequtive array
+    for (int i = 0; i < rar->size; i++) {
+        rar->array[i] = i;
+    }
+
+    return rar;
+}
+
+#else // generate a random array, as normal
+
 RandArray *
 rar_create(int num_elements)
 {
@@ -15,3 +34,5 @@ rar_create(int num_elements)
     }
     return rar;
 }
+
+#endif // RAR_DEBUG
