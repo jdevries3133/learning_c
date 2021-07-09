@@ -7,6 +7,7 @@
 
 #define BINARY_SEARCH_NO_RESULT -1
 
+
 /**
  * Checks if the array is sorted in linear time
  */

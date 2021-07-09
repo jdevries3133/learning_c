@@ -5,16 +5,19 @@
 #include "binary_search.h"
 #include "rar.h"
 
+
 typedef struct Args {
     int array_size;
     int search_target;
 } Args;
+
 
 static void
 print_help()
 {
     printf("Usage:\nbinary_search [array_size] [target]\n");
 }
+
 
 static struct Args *
 parse_args(int argc, char *argv[])
@@ -33,6 +36,7 @@ parse_args(int argc, char *argv[])
     return arg;
 }
 
+
 int
 main(int argc, char *argv[])
 {
@@ -44,16 +48,16 @@ main(int argc, char *argv[])
         exit(1);
     }
 
-    int ind = bs_search(args->search_target, rar->array, rar->size);
+    int search_result = bs_search(args->search_target, rar->array, rar->size);
 
-    if (ind == BINARY_SEARCH_NO_RESULT) {
+    if (search_result == BINARY_SEARCH_NO_RESULT) {
         printf("Search target not found.\n");
     }
     else {
         printf("Search target %d is at position %d\n",
-                args->search_target, ind);
+                args->search_target, search_result);
         printf("Its neighbors are %d and %d.\n",
-                rar->array[ind-1], rar->array[ind+1]);
+                rar->array[search_result-1], rar->array[search_result+1]);
     }
 
     free(rar);
