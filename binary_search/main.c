@@ -29,6 +29,7 @@ parse_args(int argc, char *argv[])
 
     arg->array_size = atoi(argv[1]);
     arg->search_target = atoi(argv[2]);
+
     return arg;
 }
 
@@ -43,16 +44,16 @@ main(int argc, char *argv[])
         exit(1);
     }
 
-    int index = bs_search(args->search_target, rar->array, rar->size);
+    int ind = bs_search(args->search_target, rar->array, rar->size);
 
-    if (index == BINARY_SEARCH_NO_RESULT) {
+    if (ind == BINARY_SEARCH_NO_RESULT) {
         printf("Search target not found.\n");
     }
     else {
         printf("Search target %d is at position %d\n",
-                args->search_target, index);
+                args->search_target, ind);
         printf("Its neighbors are %d and %d.\n",
-                rar->array[index-1], rar->array[index+1]);
+                rar->array[ind-1], rar->array[ind+1]);
     }
 
     free(rar);

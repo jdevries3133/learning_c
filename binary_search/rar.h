@@ -9,7 +9,14 @@
 
 
 /* If defined, a consecutive array will be generated instead ([0, 1, 2...]) */ 
-#define RAR_DEBUG
+/* #define RAR_DEBUG */
+
+#ifndef RAR_DEBUG
+    /* max gap between random integer array members.
+     * Likelihood of finding the search target is 1 / RAR_GAP
+     */
+    #define RAR_MAX_GAP 3
+#endif
 
 typedef struct rar_RandArray {
     size_t size;
