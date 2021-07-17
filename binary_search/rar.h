@@ -27,6 +27,5 @@ typedef struct rar_RandArray {
  * Create a random array of sorted random numbers between zero and RAND_MAX
  */
 RandArray *rar_create(int num_elements);
-
-/* Print utility */
-void rar_print(RandArray * rar);
+void rar_shuffle(RandArray *rar);
+void rar_print(RandArray *rar);

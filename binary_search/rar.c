@@ -38,16 +38,28 @@ rar_create(int num_elements)
 
 #endif // RAR_DEBUG
 
+void
+rar_shuffle(RandArray *rar)
+{
+    srand(time(NULL));
+    int temp;
+    int swap1;
+    int swap2;
+
+    for (int i = 0; i < rar->size * 2; i++) {
+        swap1 = rand() % rar->size;
+        swap2 = rand() % rar->size;
+        temp = rar->array[swap1];
+        rar->array[swap1] = rar->array[swap2];
+        rar->array[swap2] = temp;
+    }
+}
 
 void
-rar_print(RandArray * rar)
+rar_print(RandArray *rar)
 {
-    /* allocate 5 characters for each integer in the array */
-    size_t outbuf_size = 0;
-    size_t outbuf_limit = rar->size * 5;
-    char outbuf[sizeof(char) * outbuf_limit];
-
-    size_t line_length = 0;
+    printf("Index\tValue\n");
     for (int i = 0; i < rar->size; i++) {
+        printf("%d\t%d\n", i, rar->array[i]);
     }
 }
