@@ -2,10 +2,9 @@
  * Utilities for generating random arrays of sorted integers
  */
 
-#include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <limits.h>
+#include <time.h>
 
 
 /* If defined, a consecutive array will be generated instead ([0, 1, 2...]) */ 
@@ -28,3 +27,6 @@ typedef struct rar_RandArray {
  * Create a random array of sorted random numbers between zero and RAND_MAX
  */
 RandArray *rar_create(int num_elements);
+
+/* Print utility */
+void rar_print(RandArray * rar);

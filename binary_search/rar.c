@@ -22,6 +22,7 @@ rar_create(int num_elements)
 RandArray *
 rar_create(int num_elements)
 {
+    srand(time(NULL));
     RandArray * rar = malloc(sizeof(RandArray) + sizeof(int) * num_elements);
     rar->size = num_elements;
 
@@ -36,3 +37,17 @@ rar_create(int num_elements)
 }
 
 #endif // RAR_DEBUG
+
+
+void
+rar_print(RandArray * rar)
+{
+    /* allocate 5 characters for each integer in the array */
+    size_t outbuf_size = 0;
+    size_t outbuf_limit = rar->size * 5;
+    char outbuf[sizeof(char) * outbuf_limit];
+
+    size_t line_length = 0;
+    for (int i = 0; i < rar->size; i++) {
+    }
+}
